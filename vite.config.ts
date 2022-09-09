@@ -23,6 +23,7 @@ export default defineConfig(({ mode }) => {
         imports: [
           'vue',
           'vue-i18n',
+          '@vueuse/head',
         ],
       }),
       VueI18n(),

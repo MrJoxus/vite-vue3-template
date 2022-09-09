@@ -1,8 +1,14 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
-const locales = ref([
-  { title: 'de' },
-])
+useHead({
+  title: 'vite-vue3-template',
+  meta: [
+    {
+      name: 'description',
+      content: 'vite-vue3-template description',
+    },
+  ],
+})
 </script>
 
 <template>
