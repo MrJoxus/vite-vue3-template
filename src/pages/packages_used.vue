@@ -40,7 +40,7 @@ const packagesList = ref([
         <tbody>
           <tr v-for="packageItem in packagesList" :key="packageItem.title">
             <td>{{ packageItem.title }}</td>
-            <td>{{ packageItem.link }}</td>
+            <td><a :href="packageItem.link" target="_blank" rel="noopener noreferrer">{{ packageItem.link }}</a></td>
           </tr>
         </tbody>
       </NTable>
