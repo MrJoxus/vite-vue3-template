@@ -23,7 +23,7 @@ const themeOptions = ref([
     </NH1>
     <NCard>
       <p>
-        <NText>{{ t('theme') }}</NText>
+        <NText>{{ t('theme.title') }}</NText>
       </p>
       <NButtonGroup>
         <NButton v-for="themeOption in themeOptions" :key="themeOption.title" @click="themeOption.action">

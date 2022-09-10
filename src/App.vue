@@ -1,4 +1,12 @@
 <script setup lang="ts">
+import { NConfigProvider, NLayout } from 'naive-ui'
+import { useThemeStore } from './stores/themes'
+
+const themeStore = useThemeStore()
+onMounted(() => {
+  themeStore.getThemeFromLocalStore()
+})
+
 useHead({
   title: 'vite-vue3-template',
   meta: [
@@ -11,8 +19,10 @@ useHead({
 </script>
 
 <template>
-  <div>
-    <router-view />
-  </div>
+  <NConfigProvider :theme="themeStore.theme">
+    <NLayout>
+      <router-view />
+    </NLayout>
+  </NConfigProvider>
 </template>
 
