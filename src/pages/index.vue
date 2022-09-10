@@ -1,25 +1,18 @@
 <script setup lang="ts">
 import { NButton, NButtonGroup, NCard, NH1, NSelect, NText } from 'naive-ui'
 import { useThemeStore } from '../stores/themes'
+import { useI18nStore } from '../stores/i18n'
+
+const router = useRouter()
+
+const i18nStore = useI18nStore()
+const { t } = useI18n()
 
 const themeStore = useThemeStore()
-const { t, locale } = useI18n()
-
-const localeOptions = ref([
-  {
-    label: 'DE',
-    value: 'de',
-  },
-  {
-    label: 'EN',
-    value: 'en',
-  },
-])
-
 const themeOptions = ref([
-  { title: 'Light', action: themeStore.setLightTheme },
-  { title: 'Dark', action: themeStore.setDarkTheme },
-  { title: 'OS', action: themeStore.setOsTheme },
+  { title: t('theme.light'), action: themeStore.setLightTheme },
+  { title: t('theme.dark'), action: themeStore.setDarkTheme },
+  { title: t('theme.os'), action: themeStore.setOsTheme },
 ])
 </script>
 
@@ -41,10 +34,15 @@ const themeOptions = ref([
         <p>
           <NText>{{ t('choseLanguage') }}</NText>
         </p>
-        <NSelect v-model:value="locale" :options="localeOptions" />
+        <NSelect :value="i18nStore.locale" :options="i18nStore.localeOptions" @update:value="i18nStore.setLocale" />
         <p>
           <NText>{{ t('hello') }}</NText>
         </p>
+      </div>
+      <div>
+        <NButton @click="router.push({ name: 'packages_used' })">
+          {{ t('links.packagesUsed') }}
+        </NButton>
       </div>
     </NCard>
   </div>
@@ -61,17 +59,30 @@ const themeOptions = ref([
     position: relative;
     text-align: center;
   }
-  </style>
+</style>
 
 <i18n lang="yaml">
 de:
   locale: Deutsch
   choseLanguage: 'Sprache wählen:'
   hello: 'Hallo, Welt!'
-  theme: Theme
+  theme:
+    title: Theme
+    light: Light
+    dark: Dark
+    os: OS
+  links:
+    packagesUsed: Verwendete Packages
 en:
   locale: English
   choseLanguage: 'Chose Language:'
   hello: 'hello, world!'
-  theme: Theme
-  </i18n>
+  theme:
+    title: Theme
+    light: Light
+    dark: Dark
+    os: OS
+  packagesUsed: used Packages
+  links:
+    packagesUsed: used packages
+</i18n>

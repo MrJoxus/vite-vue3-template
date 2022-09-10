@@ -10,7 +10,7 @@ import App from './App.vue'
 
 const i18n = createI18n({
   legacy: false,
-  locale: 'de',
+  locale: localStorage.getItem('lang') || 'de',
 })
 const head = createHead()
 const routes = setupLayouts(generatedRoutes)
