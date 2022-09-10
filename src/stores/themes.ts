@@ -4,7 +4,7 @@ import { darkTheme, lightTheme, useOsTheme } from 'naive-ui'
 import type { GlobalTheme } from 'naive-ui'
 
 export const useThemeStore = defineStore('theme', () => {
-  const theme: GlobalTheme | null = ref(null)
+  const theme = ref<GlobalTheme | null>(null)
 
   function setDarkTheme() {
     theme.value = darkTheme
@@ -22,7 +22,7 @@ export const useThemeStore = defineStore('theme', () => {
   }
 
   function setThemeToLocalStore(value: string) {
-    window.localStorage.setItem('theme', value)
+    localStorage.setItem('theme', value)
   }
 
   function getThemeFromLocalStore() {
