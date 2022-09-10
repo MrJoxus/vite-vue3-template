@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
   return {
     server: {
-      port: process.env.VITE_PORT,
+      port: process.env.VITE_PORT || 4000,
     },
     plugins: [
       vue(),
@@ -23,6 +23,7 @@ export default defineConfig(({ mode }) => {
         imports: [
           'vue',
           'vue-i18n',
+          'vue-router',
           '@vueuse/head',
         ],
       }),
