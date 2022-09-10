@@ -5,6 +5,7 @@ import { setupLayouts } from 'virtual:generated-layouts'
 import generatedRoutes from 'virtual:generated-pages'
 import { createI18n } from 'vue-i18n'
 import { createHead } from '@vueuse/head'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 
 const i18n = createI18n({
@@ -17,9 +18,11 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 })
+const pinia = createPinia()
 
 createApp(App)
   .use(router)
   .use(i18n)
   .use(head)
+  .use(pinia)
   .mount('#app')
