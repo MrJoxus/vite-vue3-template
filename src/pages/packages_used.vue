@@ -8,6 +8,7 @@ const packagesList = ref([
   { title: 'Vite', link: 'https://vitejs.dev/' },
   { title: 'Pinia', link: 'https://pinia.vuejs.org/' },
   { title: 'Native Ui', link: 'https://www.naiveui.com/en-US/' },
+  { title: 'Tailwindcss', link: 'https://tailwindcss.com/' },
   { title: 'Vue Router', link: 'https://router.vuejs.org/' },
   { title: 'vite-plugin-pages', link: 'https://github.com/hannoeru/vite-plugin-pages' },
   { title: 'vite-plugin-vue-layouts', link: 'https://github.com/JohnCampionJr/vite-plugin-vue-layouts' },
