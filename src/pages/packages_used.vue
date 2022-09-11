@@ -9,6 +9,7 @@ const packagesList = ref([
   { title: 'Pinia', link: 'https://pinia.vuejs.org/' },
   { title: 'Native Ui', link: 'https://www.naiveui.com/en-US/' },
   { title: 'Tailwindcss', link: 'https://tailwindcss.com/' },
+  { title: 'xicons', link: 'https://www.xicons.org/' },
   { title: 'Vue Router', link: 'https://router.vuejs.org/' },
   { title: 'vite-plugin-pages', link: 'https://github.com/hannoeru/vite-plugin-pages' },
   { title: 'vite-plugin-vue-layouts', link: 'https://github.com/JohnCampionJr/vite-plugin-vue-layouts' },
@@ -20,10 +21,10 @@ const packagesList = ref([
 
 <template>
   <div class="banner">
-    <NH1>
+    <NH1 class="tw-pt-12 tw-pb-6">
       {{ t('packagesUsed') }}
     </NH1>
-    <NCard>
+    <NCard class="tw-mb-12">
       <div>
         <p>
           <NText>
@@ -54,13 +55,12 @@ const packagesList = ref([
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .banner{
     max-width: 600px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 64px);
     justify-content: center;
     position: relative;
     text-align: center;

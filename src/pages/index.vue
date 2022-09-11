@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { NButton, NButtonGroup, NCard, NH1, NSelect, NText } from 'naive-ui'
+import { Laptop16Regular, WeatherMoon16Filled, WeatherSunny16Regular } from '@vicons/fluent'
 import { useThemeStore } from '../stores/themes'
 import { useI18nStore } from '../stores/i18n'
 
@@ -10,15 +11,15 @@ const { t } = useI18n()
 
 const themeStore = useThemeStore()
 const themeOptions = ref([
-  { title: t('theme.light'), action: themeStore.setLightTheme },
-  { title: t('theme.dark'), action: themeStore.setDarkTheme },
-  { title: t('theme.os'), action: themeStore.setOsTheme },
+  { title: t('theme.light'), icon: markRaw(WeatherSunny16Regular), action: themeStore.setLightTheme },
+  { title: t('theme.dark'), icon: markRaw(WeatherMoon16Filled), action: themeStore.setDarkTheme },
+  { title: t('theme.os'), icon: markRaw(Laptop16Regular), action: themeStore.setOsTheme },
 ])
 </script>
 
 <template>
   <div class="banner">
-    <NH1>
+    <NH1 class="tw-pt-12 tw-pb-6">
       vite-vue3-template
     </NH1>
     <NCard>
@@ -27,6 +28,9 @@ const themeOptions = ref([
       </p>
       <NButtonGroup>
         <NButton v-for="themeOption in themeOptions" :key="themeOption.title" @click="themeOption.action">
+          <template #icon>
+            <component :is="themeOption.icon" />
+          </template>
           {{ themeOption.title }}
         </NButton>
       </NButtonGroup>
@@ -48,13 +52,13 @@ const themeOptions = ref([
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .banner{
     max-width: 600px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 64px);
+    height: 100vh;
     justify-content: center;
     position: relative;
     text-align: center;
