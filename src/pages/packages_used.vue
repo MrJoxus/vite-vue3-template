@@ -76,7 +76,7 @@ de:
   package:
     title: Titel
     link: Link
-  onlyImportantPackages: Nur die wichtigsten Packages wurden augelisted. Für eine komplette Liste siehe packages.json.
+  onlyImportantPackages: Nur die wichtigsten Packages wurden aufgelistet. Für eine komplette Liste siehe packages.json.
   links:
     index: Startseite
 en:

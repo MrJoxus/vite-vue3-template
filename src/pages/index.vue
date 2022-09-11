@@ -86,7 +86,6 @@ en:
     light: Light
     dark: Dark
     os: OS
-  packagesUsed: used Packages
   links:
     packagesUsed: used packages
 </i18n>
