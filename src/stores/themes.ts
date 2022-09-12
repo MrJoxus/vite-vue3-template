@@ -18,7 +18,7 @@ export const useThemeStore = defineStore('theme', () => {
 
   function setOsTheme() {
     theme.value = getThemeType(useOsTheme().value)
-    setThemeToLocalStore(useOsTheme().value || '')
+    setThemeToLocalStore('os')
   }
 
   function setThemeToLocalStore(value: string) {
@@ -26,12 +26,20 @@ export const useThemeStore = defineStore('theme', () => {
   }
 
   function getThemeFromLocalStore() {
-    const localStoreTheme = localStorage.getItem('theme')
-    theme.value = getThemeType(localStoreTheme)
+    theme.value = getThemeType(localStorage.getItem('theme'))
   }
 
-  function getThemeType(value: string | null) {
-    return value === 'dark' ? darkTheme : lightTheme
+  function getThemeType(value: string | null): GlobalTheme {
+    switch (value) {
+      case 'light':
+        return lightTheme
+      case 'dark':
+        return darkTheme
+      case 'os':
+        return useOsTheme().value === 'dark' ? darkTheme : lightTheme
+      default:
+        return lightTheme
+    }
   }
 
   return { theme, setDarkTheme, setLightTheme, setOsTheme, getThemeFromLocalStore }
