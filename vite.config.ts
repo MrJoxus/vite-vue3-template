@@ -1,3 +1,4 @@
+import path from 'path'
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -11,6 +12,11 @@ export default defineConfig(({ mode }) => {
   // Set the third parameter to '' to load all env regardless of the `VITE_` prefix.
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
   return {
+    resolve: {
+      alias: {
+        '~/': `${path.resolve(__dirname, 'src')}/`,
+      },
+    },
     server: {
       port: process.env.VITE_PORT || 4000,
     },
