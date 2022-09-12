@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { NConfigProvider, NLayout } from 'naive-ui'
-import { useThemeStore } from './stores/themes'
+import { useThemeStore } from '~/stores/themes'
 
 const themeStore = useThemeStore()
 onMounted(() => {

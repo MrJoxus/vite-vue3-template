@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { NButton, NButtonGroup, NCard, NH1, NSelect, NText } from 'naive-ui'
 import { Laptop16Regular, WeatherMoon16Filled, WeatherSunny16Regular } from '@vicons/fluent'
-import { useThemeStore } from '../stores/themes'
-import { useI18nStore } from '../stores/i18n'
+import { useThemeStore } from '~/stores/themes'
+import { useI18nStore } from '~/stores/i18n'
 
 const router = useRouter()
 
