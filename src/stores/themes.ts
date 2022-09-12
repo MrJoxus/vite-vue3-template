@@ -5,6 +5,7 @@ import type { GlobalTheme } from 'naive-ui'
 
 export const useThemeStore = defineStore('theme', () => {
   const theme = ref<GlobalTheme | null>(null)
+  const themePreference = ref(getThemePreference())
 
   function setDarkTheme() {
     theme.value = darkTheme
@@ -23,10 +24,15 @@ export const useThemeStore = defineStore('theme', () => {
 
   function setThemeToLocalStore(value: string) {
     localStorage.setItem('theme', value)
+    themePreference.value = value
   }
 
-  function getThemeFromLocalStore() {
+  function setThemeFromLocalStore() {
     theme.value = getThemeType(localStorage.getItem('theme'))
+  }
+
+  function getThemePreference() {
+    return localStorage.getItem('theme')
   }
 
   function getThemeType(value: string | null): GlobalTheme {
@@ -42,5 +48,13 @@ export const useThemeStore = defineStore('theme', () => {
     }
   }
 
-  return { theme, setDarkTheme, setLightTheme, setOsTheme, getThemeFromLocalStore }
+  return {
+    theme,
+    setDarkTheme,
+    setLightTheme,
+    setOsTheme,
+    setThemeFromLocalStore,
+    getThemePreference,
+    themePreference,
+  }
 })

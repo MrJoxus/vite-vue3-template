@@ -4,7 +4,7 @@ import { useThemeStore } from '~/stores/themes'
 
 const themeStore = useThemeStore()
 onMounted(() => {
-  themeStore.getThemeFromLocalStore()
+  themeStore.setThemeFromLocalStore()
 })
 
 useHead({
